@@ -26,6 +26,19 @@ typedef NS_ENUM(NSInteger, FDKeychainAccessibility)
 	
 	/// The item in the keychain cannot be accessed after a restart until the device has been unlocked once.
 	FDKeychainAccessibleAfterFirstUnlock,
+	
+	/// Item data can only be accessed while the device is unlocked. This is recommended for items
+	/// that only need be accesible while the application is in the foreground.
+	/// Items with this attribute will never migrate to a new device, so after
+	/// a backup is restored to a new device, these items will be missing
+	FDKeychainAccessibleWhenUnlockedThisDeviceOnly,
+	
+	/// Item data can only be accessed once the device has been unlocked after a restart.
+	/// This is recommended for items that need to be accessible by background
+	/// applications. Items with this attribute will never migrate to a new
+	/// device, so after a backup is restored to a new device these items will
+	/// be missing.
+	FDKeychainAccessibleAfterFirstUnlockThisDeviceOnly
 };
 
 
